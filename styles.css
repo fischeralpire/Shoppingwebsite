@@ -45,3 +45,30 @@ nav ul li a.active {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
 }
+
+.logo img {
+    width: 150px; /* Hier kannst du die Breite des Logos anpassen */
+    height: auto;
+}
+
+footer {
+    background: linear-gradient(to right, #E2725B, #007B99); /* Farbverlauf entsprechend deiner Farbpalette */
+    color: white;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    text-align: center;
+}
+
+footer .attribution a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .attribution a:hover {
+    text-decoration: underline;
+}
