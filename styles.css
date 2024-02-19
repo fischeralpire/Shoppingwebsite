@@ -50,6 +50,43 @@ nav ul li a.active {
     width: 150px; /* Hier kannst du die Breite des Logos anpassen */
     height: auto;
 }
+.welcome-section {
+    position: relative;
+    max-width: 100%; /* Maximale Breite auf 100% des verfügbaren Bereichs setzen */
+    height: 550px; /* Höhe des Containers anpassen */
+    overflow: hidden; /* Überlauf verstecken, wenn das Bild breiter als sein Container ist */
+}
+
+.welcome-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center 20%; /* Hier kannst du den Wert anpassen, um weniger von oben abzuschneiden */
+}
+
+.welcome-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+}
+
+.welcome-text h1 {
+    font-size: 68px; /* Größere Schriftgröße */
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif; /* Als Beispiel: 'Roboto' ist eine moderne Schriftart */
+    color: #fff; /* Weißer Text für Kontrast */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Schatten für den Text */
+}
+
+.welcome-text p {
+    font-size: 18px;
+    color: #E8D7A6; /* Eine andere Farbe aus der Farbpalette */
+}
+
 
 footer {
     background: linear-gradient(to right, #E2725B, #007B99); /* Farbverlauf entsprechend deiner Farbpalette */
