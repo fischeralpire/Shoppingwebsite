@@ -87,15 +87,39 @@ nav ul li a.active {
     color: #E8D7A6; /* Eine andere Farbe aus der Farbpalette */
 }
 
+.about-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 60px; /* Abstand zwischen Willkommensbild und Text */
+}
+
+.about-us-text {
+    flex: 1;
+    margin-right: 20px; /* Abstand zwischen Text und Bildern */
+}
+
+.about-us-images {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-us-images img {
+    width: 48%; /* Breite der Bilder auf 48% des verfügbaren Bereichs festlegen */
+}
 
 footer {
-    background: linear-gradient(to right, #E2725B, #007B99); /* Farbverlauf entsprechend deiner Farbpalette */
+    background: linear-gradient(to right, #E2725B, #007B99);
     color: white;
     padding: 20px 0;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
 }
+
 
 footer .container {
     text-align: center;
