@@ -87,36 +87,42 @@ nav ul li a.active {
     font-size: 18px;
     color: #E8D7A6; /* Eine andere Farbe aus der Farbpalette */
 }
+
+.about-us-title h2 {
+    font-size: 68px; /* Größere Schriftgröße */
+    background: linear-gradient(to right, #E2725B, #007B99, #FFD166, #5B9279, #E8D7A6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .about-us {
-    background-color: #F8F9FA; /* Hintergrundfarbe des Abschnitts */
-    padding: 40px 0; /* Innenabstand des Abschnitts */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px; /* Abstand zwischen Willkommensbild und Text */
 }
 
-.about-title {
-    text-align: center; /* Zentrieren des Titels */
-    margin-bottom: 40px; /* Abstand unter dem Titel */
+.about-us-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.about-title h2 {
-    font-size: 32px; /* Größe des Titels */
-    color: #333; /* Farbe des Titels */
+.about-us-text {
+    flex: 1;
+    margin-right: 20px; /* Abstand zwischen Text und Bildern */
+    font-family: 'Montserrat', sans-serif; /* Verwendung einer modernen Schriftart */
 }
 
-.about-content {
-    display: flex; /* Verwenden von Flexbox für das Layout */
-    justify-content: space-between; /* Platzieren der Elemente am Anfang und Ende des Containers */
-    align-items: flex-start; /* Ausrichten der Elemente oben */
+.about-us-text p {
+    font-size: 30px; /* Größere Schriftgröße für den Text */
 }
 
-.about-text {
-    flex: 1; /* Flexibles Wachstum des Textblocks */
-    max-width: 48%; /* Maximale Breite des Textblocks */
-}
-
-.about-image {
-    flex: 1; /* Flexibles Wachstum des Bildblocks */
-    max-width: 48%; /* Maximale Breite des Bildblocks */
-    text-align: right; /* Ausrichtung des Bildes rechts */
+.about-us-image {
+    flex: 1;
+    margin-left: 20px; /* Abstand zwischen Text und Bild */
 }
 
 
