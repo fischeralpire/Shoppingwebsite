@@ -51,6 +51,17 @@ nav ul li a.active {
     height: auto;
 }
 
+
+@media screen and (max-width: 768px) {
+    /* Positionierung für kleinere Bildschirme (mittig) */
+    .logo {
+        position: static; /* Ändert die Positionierung auf den Standardwert für das Logo */
+        margin: 0 auto; /* Zentriert das Logo horizontal */
+        text-align: center; /* Zentriert den Text im Logo (falls erforderlich) */
+    }
+}
+
+
 .welcome-section {
     position: relative;
     max-width: 100%; /* Maximale Breite auf 100% des verfügbaren Bereichs setzen */
@@ -97,27 +108,17 @@ nav ul li a.active {
     margin-bottom: 20px;
 }
 
-.about-us {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px; /* Abstand zwischen Willkommensbild und Text */
-}
+
 
 .about-us-content {
     display: flex;
-    justify-content: space-between;
     width: 100%;
+    justify-content: space-between;
 }
 
 .about-us-text {
     flex: 1;
-    margin-right: 20px; /* Abstand zwischen Text und Bildern */
-    font-family: 'Montserrat', sans-serif; /* Verwendung einer modernen Schriftart */
-}
-
-.about-us-text p {
-    font-size: 30px; /* Größere Schriftgröße für den Text */
+    margin-right: 20px; /* Abstand zwischen Text und Bild */
 }
 
 .about-us-image {
@@ -125,7 +126,18 @@ nav ul li a.active {
     margin-left: 20px; /* Abstand zwischen Text und Bild */
 }
 
+.about-us-image img {
+    width: 100%; /* Bild auf 100% der Containerbreite skalieren */
+    height: auto; /* Automatische Höhenanpassung, um das Bild nicht zu verzerren */
+}
 
+.about-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px; /* Abstand zwischen Willkommensbild und Text */
+    margin-bottom: 90px; /* Unterer Abstand für das Bild */
+}
 
 footer {
     background: linear-gradient(to right, #E2725B, #007B99);
@@ -136,7 +148,9 @@ footer {
     bottom: 0;
     left: 0;
     z-index: 1000;
+    margin-top: 60px; /* Oberer Abstand für den Footer */
 }
+
 
 footer .container {
     text-align: center;
@@ -149,4 +163,111 @@ footer .attribution a {
 
 footer .attribution a:hover {
     text-decoration: underline;
+}
+/* Standard-Styling */
+/* Fügen Sie hier Ihr Standard-Styling für Desktop hinzu */
+
+/* Media Query für Tablets */
+@media screen and (max-width: 768px) {
+    /* Fügen Sie hier Ihr Styling für Tablets hinzu */
+    .welcome-text h1 {
+        font-size: 48px; /* Beispiel: Kleinere Schriftgröße für Tablets */
+    }
+    .about-us-content {
+        flex-direction: column; /* Ändert die Richtung der flexiblen Container auf vertikal */
+    }
+    .about-us-text, .about-us-image {
+        width: 100%; /* Beide Spalten nehmen die volle Breite auf Tablets */
+    }
+}
+
+/* Media Query für Smartphones */
+@media screen and (max-width: 480px) {
+    /* Fügen Sie hier Ihr Styling für Smartphones hinzu */
+    .welcome-section {
+        height: 300px; /* Beispiel: Verkürzt die Höhe des Willkommensbereichs für Smartphones */
+    }
+    .welcome-text h1 {
+        font-size: 36px; /* Beispiel: Noch kleinere Schriftgröße für Smartphones */
+    }
+}
+/* Burgermenü */
+
+.burger {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (min-width: 769px) {
+    /* Nur auf Bildschirmen mit einer Breite von 769px oder mehr ausblenden */
+    .burger-menu {
+        display: none; /* Burgermenü auf größeren Bildschirmen ausblenden */
+    }
+}
+/* Media Query für Tablets */
+@media screen and (max-width: 768px) {
+    /* Fügen Sie hier Ihr Styling für Tablets hinzu */
+    .welcome-text h1 {
+        font-size: 48px; /* Beispiel: Kleinere Schriftgröße für Tablets */
+    }
+    .about-us-content {
+        flex-direction: column; /* Ändert die Richtung der flexiblen Container auf vertikal */
+    }
+    .about-us-text, .about-us-image {
+        width: 100%; /* Beide Spalten nehmen die volle Breite auf Tablets */
+    }
+
+    /* Burgermenü */
+    .burger-menu {
+        position: relative; /* Position relativ für das Overlay */
+        z-index: 2; /* Stellen Sie sicher, dass das Burgermenü über anderen Inhalten liegt */
+    }
+
+    .burger-menu.active .burger:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .burger-menu.active .burger:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-menu.active .burger:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links {
+        display: none; /* Verstecke die Navigationslinks im Burgermenü */
+        position: absolute; /* Position absolut für das Overlay */
+        top: 95px; /* Hier ändern Sie den Wert, um das Dropdown-Menü näher am Burgermenü anzuzeigen */
+        left: 0;
+        background-color: #E2725B; /* Hintergrundfarbe für das Overlay */
+        width: 100%; /* Volle Breite */
+        padding: 60px 0; /* Innenabstand */
+        z-index: 1; /* Stellen Sie sicher, dass das Burgermenü über anderen Inhalten liegt */
+
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column; /* Navigationslinks in Spalten anordnen */
+        align-items: center; /* Zentrieren der Elemente horizontal */
+    }
+
+    .nav-links.active li {
+        margin-top: 20px; /* Fügen Sie einen vertikalen Abstand zwischen den Links hinzu */
+    }
+
+    .nav-links.active li a {
+        color: #000; /* Textfarbe für die Navigationslinks */
+        font-size: 18px; /* Schriftgröße für die Navigationslinks */
+        text-decoration: none; /* Textunterstreichung entfernen */
+        transition: color 0.3s ease; /* Sanfte Übergangsanimation für die Textfarbe */
+    }
+
+    .nav-links.active li a:hover {
+        color: #E2725B; /* Ändern Sie die Textfarbe beim Hover-Effekt */
+    }
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alpainca - Südamerikanischer Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLEHASH=" crossorigin="anonymous" />
 </head>
 <body>
     <header>
@@ -15,12 +16,17 @@
                 </a>
             </div>
             <nav>
-                <ul>
+                <ul class="nav-links">
                     <li><a href="#" class="active">Startseite</a></li>
                     <li><a href="#">Damen</a></li>
                     <li><a href="#">Herren</a></li>
                     <li><a href="#">Kinder</a></li>
                 </ul>
+                <div class="burger-menu" onclick="toggleMenu()">
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                </div>
             </nav>
         </div>
     </header>
@@ -61,5 +67,13 @@
             </div>
         </div>
     </footer>
-</body>
+
+    <script>
+        function toggleMenu() {
+            var navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+    
+  </body>
 </html>
