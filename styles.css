@@ -47,9 +47,32 @@ nav ul li a.active {
 }
 
 .logo img {
-    width: 150px; /* Hier kannst du die Breite des Logos anpassen */
+    width: 90px; /* Hier kannst du die Breite des Logos anpassen */
     height: auto;
 }
+.shopping-cart {
+    position: absolute;
+    top: 20px; /* Passen Sie hier den gewünschten Abstand von oben an */
+    right: 100px; /* Passen Sie hier den gewünschten Abstand von rechts an */
+    transform: translateY(15%); /* Zentriert den Container vertikal basierend auf seiner Höhe */
+}
+
+.shopping-cart svg {
+    width: 40px; /* Setzen Sie hier die Breite des Icons auf 60px */
+    height: auto; /* Automatische Anpassung der Höhe */
+    
+}
+
+.shopping-cart svg path {
+    stroke-width: 0.75px; /* Reduzieren Sie die Strichstärke auf 0.75px */
+    stroke: black; /* Setzen Sie die Strichfarbe auf Schwarz */
+}
+
+.shopping-cart svg path:hover {
+    stroke: #ffffff; /* Ändern Sie die Strichfarbe beim Hover-Effekt (optional) */
+}
+
+
 
 
 @media screen and (max-width: 768px) {
