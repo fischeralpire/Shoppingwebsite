@@ -10,10 +10,15 @@ body {
 }
 
 header {
-    background-color: #E2725B;
+    position: fixed; /* Fija el encabezado */
+    top: 0; /* Lo coloca en la parte superior */
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: rgba(226, 114, 91, 0.8); /* Color de fondo con transparencia (aquí: 80%) */
     color: white;
-    padding: 20px 0;
+        padding: 5px 0 10px 0; /* Reduziere den oberen Abstand */
+        z-index: 1000; /* Asegura que esté sobre otros elementos */
 }
+
 
 header h1 {
     margin: 0;
@@ -58,7 +63,7 @@ nav ul li a.active {
 }
 
 .shopping-cart svg {
-    width: 40px; /* Setzen Sie hier die Breite des Icons auf 60px */
+    width: 30px; /* Setzen Sie hier die Breite des Icons auf 60px */
     height: auto; /* Automatische Anpassung der Höhe */
     
 }
@@ -163,15 +168,15 @@ nav ul li a.active {
 }
 
 footer {
-    background: linear-gradient(to right, #E2725B, #007B99);
+    background: linear-gradient(to right, rgba(226, 114, 91, 0.8), rgba(0, 123, 153, 0.8));
     color: white;
     padding: 20px 0;
     width: 100%;
-    position: fixed;
-    bottom: 0;
+    position: relative; /* Ändern Sie die Position auf relativ */
+    bottom: 0; /* Setzen Sie den Abstand zum unteren Rand auf 0 */
     left: 0;
     z-index: 1000;
-    margin-top: 60px; /* Oberer Abstand für den Footer */
+    margin-top: auto; /* Stellen Sie sicher, dass der Footer am Ende des Inhalts bleibt */
 }
 
 
