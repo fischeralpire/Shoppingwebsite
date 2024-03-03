@@ -12,8 +12,8 @@ menuContainer.innerHTML = `
             <ul class="nav-links">
                 <li><a href="index.html" ${window.location.pathname === '/index.html' ? 'class="active"' : ''}>Startseite</a></li>
                 <li><a href="damen.html" ${window.location.pathname === '/damen.html' ? 'class="active"' : ''}>Damen</a></li>
-                <li><a href="#" ${window.location.pathname === '/herren.html' ? 'class="active"' : ''}>Herren</a></li>
-                <li><a href="#" ${window.location.pathname === '/kinder.html' ? 'class="active"' : ''}>Kinder</a></li>
+                <li><a href="herren.html" ${window.location.pathname === '/herren.html' ? 'class="active"' : ''}>Herren</a></li>
+                <li><a href="kinder.html" ${window.location.pathname === '/kinder.html' ? 'class="active"' : ''}>Kinder</a></li>
             </ul>
             <div class="shopping-cart">
                 <a href="#">
@@ -31,6 +31,7 @@ menuContainer.innerHTML = `
         </nav>
     </div>
 </header>
+
 `;
 
 document.body.appendChild(menuContainer);
