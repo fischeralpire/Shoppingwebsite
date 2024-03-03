@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alpainca - Südamerikanischer Shop</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLEHASH=" crossorigin="anonymous" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alpainca - Südamerikanischer Shop</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLEHASH=" crossorigin="anonymous" />
+</head>
+<body>
+    <!-- Hier wird das Menü von JavaScript hinzugefügt -->
+    <header>
+        <script src="menu.js"></script>
+
+    </header>
     <style>
         .product-grid {
             display: flex;
@@ -25,13 +32,23 @@
             max-width: 100%;
             height: auto;
         }
-    </style>
-</head>
-<body>
-    <!-- Hier wird das Menü von JavaScript hinzugefügt -->
-    <header>
-        <script src="menu.js"></script>
-    </header>
+
+        .cart-item-count {
+    position: fixed; /* Positioniert das Element fixiert */
+    top: 10px; /* Abstand vom oberen Rand */
+    right: 10px; /* Abstand vom rechten Rand */
+    background-color: #E2725B; /* Hintergrundfarbe */
+    color: #fff; /* Textfarbe */
+    border-radius: 50%; /* Kreisrunde Form */
+    width: 30px; /* Breite */
+    height: 30px; /* Höhe */
+    display: flex; /* Anzeige als Flex-Container */
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center; /* Zentriert vertikal */
+    font-size: 14px; /* Schriftgröße */
+    font-weight: bold; /* Fettschrift */
+}
+</style>
     <div style="margin-top: 120px;"></div>
 
     <main>
@@ -43,52 +60,81 @@
                     <h2>Produkt 1</h2>
                     <p>Beschreibung des Produkts 1</p>
                     <span class="price">29,99 €</span>
-                    <button class="add-to-cart">In den Warenkorb</button>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
                 </div>
                 <div class="product-card">
                     <img src="assets/products/produkt2.webp" alt="Produkt 2">
                     <h2>Produkt 2</h2>
                     <p>Beschreibung des Produkts 2</p>
                     <span class="price">39,99 €</span>
-                    <button class="add-to-cart">In den Warenkorb</button>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
                 </div>
                 <div class="product-card">
                     <img src="assets/products/produkt3.webp" alt="Produkt 3">
                     <h2>Produkt 3</h2>
                     <p>Beschreibung des Produkts 3</p>
-                    <span class="price">39,99 €</span>
-                    <button class="add-to-cart">In den Warenkorb</button>
+                    <span class="price">49,99 €</span>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
                 </div>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <img src="assets/products/produkt4.webp" alt="Produkt 4">
-                        <h2>Produkt 1</h2>
-                        <p>Beschreibung des Produkts 1</p>
-                        <span class="price">29,99 €</span>
-                        <button class="add-to-cart">In den Warenkorb</button>
-                    </div>
-                    <div class="product-card">
-                        <img src="assets/products/produkt5.webp" alt="Produkt 5">
-                        <h2>Produkt 2</h2>
-                        <p>Beschreibung des Produkts 2</p>
-                        <span class="price">39,99 €</span>
-                        <button class="add-to-cart">In den Warenkorb</button>
-                    </div>
-                    <div class="product-card">
-                        <img src="assets/products/produkt6.webp" alt="Produkt 6">
-                        <h2>Produkt 3</h2>
-                        <p>Beschreibung des Produkts 3</p>
-                        <span class="price">39,99 €</span>
-                        <button class="add-to-cart">In den Warenkorb</button>
-                    </div>
+                <div class="product-card">
+                    <img src="assets/products/produkt4.webp" alt="Produkt 4">
+                    <h2>Produkt 4</h2>
+                    <p>Beschreibung des Produkts 4</p>
+                    <span class="price">59,99 €</span>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
+                </div>
+                <div class="product-card">
+                    <img src="assets/products/produkt5.webp" alt="Produkt 5">
+                    <h2>Produkt 5</h2>
+                    <p>Beschreibung des Produkts 5</p>
+                    <span class="price">69,99 €</span>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
+                </div>
+                <div class="product-card">
+                    <img src="assets/products/produkt6.webp" alt="Produkt 6">
+                    <h2>Produkt 6</h2>
+                    <p>Beschreibung des Produkts 6</p>
+                    <span class="price">79,99 €</span>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
+                </div>
                 <!-- Weitere Produktkarten hier einfügen -->
             </div>
         </div>
     </main>
-
-    <!-- Hier wird der Footer von JavaScript hinzugefügt -->
     <footer>
+        <!-- Dein Footer -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="footer.js"></script>
+        <script>
+            let cartItemCount = 0;
+
+            function updateCartItemCount() {
+                const cartCountElement = document.getElementById('cart-item-count');
+                cartCountElement.textContent = cartItemCount;
+            }
+
+            function addProductToCart() {
+                cartItemCount++;
+                updateCartItemCount();
+            }
+
+            // Beispiel: Füge ein Produkt hinzu
+            // addProductToCart();
+        </script>
+        <div class="cart-icon">
+            <a href="#">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-item-count" class="badge badge-danger">0</span> <!-- Hier wird die Anzahl der Produkte im Warenkorb angezeigt -->
+            </a>
+        </div>
     </footer>
 </body>
 </html>
