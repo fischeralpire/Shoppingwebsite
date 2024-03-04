@@ -8,22 +8,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLEHASH=" crossorigin="anonymous" />
 </head>
 <body>
+    <style>
+        /* Hier können Sie Ihre CSS-Stile hinzufügen, falls erforderlich */
+        
+        /* Stil für den Scroll-to-Top Pfeil */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: rgba(226, 114, 91, 0.8);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            background-color: rgba(226, 114, 91, 1);
+        }
+    </style>
     <header>
         <script src="menu.js"></script>
 
     </header>
-    
     <!-- Weitere Inhalte der Webseite hier einfügen -->
     <main>
         <div class="container">
             <div class="welcome-section">
-                <img src="assets/images/willkommen-bild.jpeg" alt="Willkommen Bild">
+                <img src="assets/images/willkommen2-bild.jpeg" alt="Willkommen Bild">
                 <div class="welcome-text">
                     <h1>Willkommen bei Alpainca</h1>
                     <p>Wir sind stolz darauf, nachhaltige südamerikanische Produkte anzubieten...</p>
                 </div>
             </div>
-    
             <section class="about-us">
                 <div class="about-us-title">
                     <h2>Das sind wir</h2>
@@ -42,20 +66,21 @@
             </section>
         </div>
     </main>
-
     <footer>
         <script src="footer.js"></script>
-
     </footer>
-
     <script>
         function toggleMenu() {
             var navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('active');
         }
-        
-        
-    </script>
-    
+    </script>  
+        <!-- Scroll-to-Top Pfeil -->
+        <a href="#" class="scroll-to-top" onclick="scrollToTop()">
+            <!-- Dein SVG-Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+                <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
+            </svg>
+        </a>
   </body>
 </html>
