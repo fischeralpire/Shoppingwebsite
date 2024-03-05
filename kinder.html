@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLEHASH=" crossorigin="anonymous" />
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
         /* Deine Banner-Stile hier */
         .banner {
@@ -57,6 +60,45 @@
                 margin-top: 0px; /* Erhöhen Sie den Abstand für kleinere Bildschirme */
             }
         }
+    </style>
+</head>
+<body>
+
+    <!-- Hier wird das Menü von JavaScript hinzugefügt -->
+    <header>
+        <div class="container"> <!-- Container für den Header hinzugefügt -->
+
+        <script src="menu.js"></script>
+    </div>
+
+    </header>
+
+    <!-- Banner -->
+    <div class="banner">
+        <img src="assets/banner/damen-banner.jpg" alt="Damen Banner">
+    </div>
+</html>
+
+    <style>
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .product-card {
+            width: 30%; /* Adjust the width as needed */
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
         footer {
             background: linear-gradient(to right, rgba(226, 114, 91, 0.8), rgba(0, 123, 153, 0.8));
             color: white;
@@ -128,88 +170,38 @@
             background-color: rgba(226, 114, 91, 1);
         }
     </style>
-</head>
-<body>
-    <!-- Hier wird das Menü von JavaScript hinzugefügt -->
-    <header>
-        <script src="menu.js"></script>
-    </header>
-
-    <!-- Banner -->
-    <div class="banner">
-        <img src="assets/banner/kinder-banner.jpg" alt="Damen Banner">
-    </div>
-</html>
-
-    <style>
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .product-card {
-            width: 30%; /* Adjust the width as needed */
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .cart-item-count {
-    position: fixed; /* Positioniert das Element fixiert */
-    top: 10px; /* Abstand vom oberen Rand */
-    right: 10px; /* Abstand vom rechten Rand */
-    background-color: #E2725B; /* Hintergrundfarbe */
-    color: #fff; /* Textfarbe */
-    border-radius: 50%; /* Kreisrunde Form */
-    width: 30px; /* Breite */
-    height: 30px; /* Höhe */
-    display: flex; /* Anzeige als Flex-Container */
-    justify-content: center; /* Zentriert horizontal */
-    align-items: center; /* Zentriert vertikal */
-    font-size: 14px; /* Schriftgröße */
-    font-weight: bold; /* Fettschrift */
-}
-</style>
-
-    <main>
-        <div class="container">
-            <h1>Kinderkollektion</h1>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="assets/products/kinder/kids1.webp" alt="Produkt 1">
-                    <h2>Produkt 1</h2>
-                    <p>Beschreibung des Produkts 1</p>
-                    <span class="price">29,99 €</span>
-                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
-                </div>
-                <div class="product-card">
-                    <img src="assets/products/kinder/kids2.webp" alt="Produkt 2">
-                    <h2>Produkt 2</h2>
-                    <p>Beschreibung des Produkts 2</p>
-                    <span class="price">39,99 €</span>
-                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
-                </div>
-                <div class="product-card">
-                    <img src="assets/products/kinder/kids3.webp" alt="Produkt 3">
-                    <h2>Produkt 3</h2>
-                    <p>Beschreibung des Produkts 3</p>
-                    <span class="price">49,99 €</span>
-                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
-                </div>
-                <!-- Weitere Produktkarten hier einfügen -->
+<main>
+    <div class="container">
+        <h1>Kinderkollektion</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="assets/products/kinder/kids1.webp" alt="Produkt 1">
+                <h2>Produkt 1</h2>
+                <p>Beschreibung des Produkts 1</p>
+                <span class="price">29,99 €</span>
+                <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
             </div>
+            <div class="product-card">
+                <img src="assets/products/kinder/kids2.webp" alt="Produkt 2">
+                <h2>Produkt 2</h2>
+                <p>Beschreibung des Produkts 2</p>
+                <span class="price">39,99 €</span>
+                <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
+            </div>
+            <div class="product-card">
+                <img src="assets/products/kinder/kids3.webp" alt="Produkt 3">
+                <h2>Produkt 3</h2>
+                <p>Beschreibung des Produkts 3</p>
+                <span class="price">49,99 €</span>
+                <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
+            </div>
+            <!-- Weitere Produktkarten hier einfügen -->
         </div>
-    </main>
+    </div>
+</main>
     <footer>
         <!-- Dein Footer -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -246,5 +238,7 @@
             <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
         </svg>
     </a>
+      <!-- Bootstrap JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
