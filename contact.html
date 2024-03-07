@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpainca - Südamerikanischer Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-EXAMPLEHASH=" crossorigin="anonymous" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Hier können Sie Ihre CSS-Stile hinzufügen, falls erforderlich */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E8D7A6; /* Hintergrundfarbe in Llama Wool */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container2 {
+            max-width: 600px;
+            margin: 150px auto 50px auto; /* 150px oben, 50px unten */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #E2725B; /* Überschrift in Terra Cotta */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #007B99; /* Label-Farbe in Teal Blue */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        input[type="submit"] {
+            background-color: #FFD166; /* Button-Hintergrundfarbe in Sonnenuntergang-Gelb */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FFC300; /* Hervorgehobene Button-Farbe in einem dunkleren Gelb */
+        }
+
+        /* Stil für den Scroll-to-Top Pfeil */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            background-color: rgba(226, 114, 91, 0.8);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            background-color: rgba(226, 114, 91, 1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <script src="menu.js"></script>
+    </header>
+
+    <main>
+        <div class="container2">
+            <h2>Kontaktformular</h2>
+            <form action="contact_form.php" method="POST">
+                <div class="form-group">
+                    <label for="email">E-Mail-Adresse:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Handynummer:</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="message">Nachricht:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <input type="submit" value="Senden">
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <script src="footer.js"></script>
+    </footer>
+
+    <a href="#" class="scroll-to-top" onclick="scrollToTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+            <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
+        </svg>
+    </a>
+
+    <script>
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

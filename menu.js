@@ -14,6 +14,8 @@ menuContainer.innerHTML = `
                 <li><a href="damen.html" ${window.location.pathname === '/damen.html' ? 'class="active"' : ''}>Damen</a></li>
                 <li><a href="herren.html" ${window.location.pathname === '/herren.html' ? 'class="active"' : ''}>Herren</a></li>
                 <li><a href="kinder.html" ${window.location.pathname === '/kinder.html' ? 'class="active"' : ''}>Kinder</a></li>
+                <li><a href="contact.html" ${window.location.pathname === '/contact.html' ? 'class="active"' : ''}>Kontakt</a></li>
+
             </ul>
             <div class="shopping-cart">
                 <a href="#">
