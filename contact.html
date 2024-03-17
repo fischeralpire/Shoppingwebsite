@@ -105,7 +105,7 @@
     <main>
         <div class="container2">
             <h2>Kontaktformular</h2>
-            <form action="contact_form.php" method="POST">
+<form action="contact_form.php" method="POST">
                 <div class="form-group">
                     <label for="email">E-Mail-Adresse:</label>
                     <input type="email" id="email" name="email" required>
@@ -148,5 +148,41 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Standard-Formularverhalten unterdrücken
+
+            // Hier können Sie den Code einfügen, um die Formulardaten zu verarbeiten und an die E-Mail zu senden
+            
+            // FormData-Objekt erstellen, um die Formulardaten zu erfassen
+var formData = new FormData(document.getElementById("contactForm"));
+
+// AJAX-Anfrage erstellen
+var xhr = new XMLHttpRequest();
+
+// AJAX-Anfrage konfigurieren
+xhr.open("POST", "contact_form.php", true);
+
+// AJAX-Ereignislistener hinzufügen
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        // Erfolgreiche Antwort vom Server
+        // Hier können Sie die Bestätigungsnachricht anzeigen oder andere Aktionen ausführen
+        document.getElementById("contactForm").reset(); // Formular zurücksetzen
+        document.getElementById("confirmation").style.display = "block"; // Bestätigungsnachricht anzeigen
+    } else {
+        // Fehler beim Senden des Formulars
+        console.error("Fehler beim Senden des Formulars: " + xhr.statusText);
+        // Hier können Sie eine Fehlermeldung anzeigen oder andere Fehlerbehandlungen durchführen
+    }
+};
+
+// AJAX-Anfrage senden
+xhr.send(formData);
+            // Nach erfolgreicher Verarbeitung:
+            document.getElementById("contactForm").reset(); // Formular zurücksetzen
+            document.getElementById("confirmation").style.display = "block"; // Bestätigungsnachricht anzeigen
+        });
+    </script>
 </body>
 </html>
