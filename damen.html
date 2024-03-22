@@ -32,8 +32,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            margin-top: 20px; /* Abstand zwischen dem Banner und den Poncho-Bildern */
-            margin-bottom: 20px; /* Zusätzlicher Abstand unterhalb der Poncho-Bildern */
+            margin-top: 20px; /* Abstand zwischen dem Banner und den Produktkarten */
+            margin-bottom: 20px; /* Zusätzlicher Abstand unterhalb der Produktkarten */
         }
 
         .product-card {
@@ -77,112 +77,51 @@
     <div class="banner">
         <img src="assets/banner/damen-banner.jpg" alt="Damen Banner">
     </div>
-</html>
-
-    <style>
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .product-card {
-            width: 30%; /* Adjust the width as needed */
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        footer {
-            background: linear-gradient(to right, rgba(226, 114, 91, 0.8), rgba(0, 123, 153, 0.8));
-            color: white;
-            padding: 20px 0;
-            width: 100%;
-            position: relative;
-            bottom: 0;
-            left: 0;
-            z-index: 1000;
-            margin-top: auto;
-        }
-
-        footer .container {
-            text-align: center;
-        }
-
-        footer .attribution a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer .attribution a:hover {
-            text-decoration: underline;
-        }
-
-        /* Stil für den Warenkorb-Icon */
-        .cart-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background-color: rgba(226, 114, 91, 0.8);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .cart-icon:hover {
-            background-color: rgba(226, 114, 91, 1);
-        }
-
-        /* Stil für den Scroll-to-Top Pfeil */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background-color: rgba(226, 114, 91, 0.8);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .scroll-to-top:hover {
-            background-color: rgba(226, 114, 91, 1);
-        }
-    </style>
 
     <main>
+        <!-- Hier wird der Produktname und der Preis von der Datenbank abgerufen -->
+<form method="POST" action="add_to_cart.php">
+    <input type="hidden" name="product_id" value="1"> <!-- Beispiel: Produkt-ID -->
+    <button type="submit">In den Warenkorb</button>
+</form>
+
+<?php
+// Hier musst du deine Datenbankverbindung einrichten und die Produkte abrufen
+include_once 'database.php';
+
+// Beispielabfrage, um Produkte abzurufen
+$query = "SELECT id, name, price FROM products";
+$result = mysqli_query($conn, $query);
+
+// Produkte in einem Formular anzeigen
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<div>";
+        echo "<h2>" . $row['name'] . "</h2>";
+        echo "<p>Preis: " . $row['price'] . " €</p>";
+        echo "<form method='POST' action='add_to_cart.php'>";
+        echo "<input type='hidden' name='product_id' value='" . $row['id'] . "'>";
+        echo "<button type='submit'>In den Warenkorb</button>";
+        echo "</form>";
+        echo "</div>";
+    }
+} else {
+    echo "Keine Produkte gefunden.";
+}
+?>
         <div class="container">
             <h1>Damenkollektion</h1>
             <div class="product-grid">
+                <!-- Hier werden die Produktkarten dynamisch hinzugefügt -->
                 <div class="product-card">
                     <img src="assets/products/produkt1.webp" alt="Produkt 1">
                     <h2>Produkt 1</h2>
                     <p>Beschreibung des Produkts 1</p>
                     <span class="price">29,99 €</span>
                     <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                    <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
+                    <button class="add-to-cart" onclick="addProductToCart(1)">In den Warenkorb</button>
                 </div>
+                
                 <div class="product-card">
                     <img src="assets/products/produkt2.webp" alt="Produkt 2">
                     <h2>Produkt 2</h2>
@@ -255,7 +194,7 @@
             }
         </script>
     </footer>
-
+    <script src="cart.js"></script>
     <!-- Warenkorb-Icon -->
     <a href="#" class="cart-icon" onclick="scrollToTop()">
         <!-- Dein SVG-Icon -->

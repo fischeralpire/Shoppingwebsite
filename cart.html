@@ -1,0 +1,91 @@
+<?php
+session_start();
+include_once 'database.php';
+
+if (isset($_SESSION['order_id'])) {
+    $order_id = $_SESSION['order_id'];
+    
+    $query_cart_items = "SELECT * FROM order_items WHERE order_id = $order_id";
+    $result_cart_items = mysqli_query($conn, $query_cart_items);
+    
+    if (mysqli_num_rows($result_cart_items) > 0) {
+        while ($row_cart_item = mysqli_fetch_assoc($result_cart_items)) {
+            echo "Produkt: " . $row_cart_item['product_id'] . ", Preis: " . $row_cart_item['price'] . "<br>";
+        }
+    } else {
+        echo "Warenkorb ist leer.";
+    }
+} else {
+    echo "Fehler: Bestellung nicht gefunden.";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einkaufswagen - Alpainca</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Weitere Meta-Tags und Stylesheets hier einbinden -->
+</head>
+<body>
+    <header>
+        <!-- Hier könnte der Header-Inhalt, wie Menü und Logo, eingefügt werden -->
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Einkaufswagen</h1>
+            <div id="cart-items">
+                <!-- Hier werden die Produkte im Warenkorb angezeigt -->
+            </div>
+            <button onclick="checkout()">Zur Kasse gehen</button>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Hier könnte der Footer-Inhalt, wie Links zu sozialen Medien und Kontaktinformationen, eingefügt werden -->
+    </footer>
+
+    <!-- JavaScript-Datei einbinden -->
+    <script src="cart.js"></script>
+    <script>
+        // Variable zur Verfolgung der Anzahl der Artikel im Warenkorb
+        let cartItemCount = 0;
+
+        function checkout() {
+            // Hier könntest du den Checkout-Prozess implementieren
+            if (cartItemCount > 0) {
+                // Der Warenkorb ist nicht leer, daher Weiterleitung zur Bezahlseite
+                window.location.href = 'bezahlseite.html';
+            } else {
+                // Der Warenkorb ist leer, daher eine Warnung oder Meldung anzeigen
+                alert('Ihr Warenkorb ist leer. Bitte fügen Sie Produkte hinzu, bevor Sie zur Kasse gehen.');
+            }
+        }
+
+        // Hier werden die Artikel vom Local Storage abgerufen und auf der Seite angezeigt
+        const cartItemsDiv = document.getElementById('cart-items');
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        if (cartItems.length > 0) {
+            // Anzahl der Artikel im Warenkorb aktualisieren
+            cartItemCount = cartItems.length;
+
+            cartItems.forEach(item => {
+                // Erstelle ein HTML-Element für jeden Artikel und füge es dem DOM hinzu
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `
+                    <p>${item.name} - ${item.price}</p>
+                    <!-- Hier weitere Informationen zum Artikel einfügen -->
+                `;
+                cartItemsDiv.appendChild(itemElement);
+            });
+        } else {
+            // Falls der Warenkorb leer ist
+            cartItemsDiv.textContent = 'Der Warenkorb ist leer.';
+        }
+    </script>
+</body>
+</html>

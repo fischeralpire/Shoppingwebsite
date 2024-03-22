@@ -77,132 +77,25 @@
     <div class="banner">
         <img src="assets/banner/herren-banner.jpg" alt="Damen Banner">
     </div>
-</html>
 
-    <style>
-        .product-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .product-card {
-            width: 30%; /* Adjust the width as needed */
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .product-card img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        footer {
-            background: linear-gradient(to right, rgba(226, 114, 91, 0.8), rgba(0, 123, 153, 0.8));
-            color: white;
-            padding: 20px 0;
-            width: 100%;
-            position: relative;
-            bottom: 0;
-            left: 0;
-            z-index: 1000;
-            margin-top: auto;
-        }
-
-        footer .container {
-            text-align: center;
-        }
-
-        footer .attribution a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer .attribution a:hover {
-            text-decoration: underline;
-        }
-
-        /* Stil für den Warenkorb-Icon */
-        .cart-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background-color: rgba(226, 114, 91, 0.8);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .cart-icon:hover {
-            background-color: rgba(226, 114, 91, 1);
-        }
-
-        /* Stil für den Scroll-to-Top Pfeil */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-            background-color: rgba(226, 114, 91, 0.8);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .scroll-to-top:hover {
-            background-color: rgba(226, 114, 91, 1);
-        }
-    </style>
-
-<main>
-    <div class="container">
-        <h1>Herrenkollektion</h1>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="assets/products/herren/produkt8.webp" alt="Produkt 1">
-                <h2>Produkt 1</h2>
-                <p>Beschreibung des Produkts 1</p>
-                <span class="price">29,99 €</span>
-                <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
-            </div>
-            <div class="product-card">
-                <img src="assets/products/herren/produkt9.webp" alt="Produkt 2">
-                <h2>Produkt 2</h2>
-                <p>Beschreibung des Produkts 2</p>
-                <span class="price">39,99 €</span>
-                <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
-            </div>
-            <div class="product-card">
-                <img src="assets/products/herren/produkt10.webp" alt="Produkt 3">
-                <h2>Produkt 3</h2>
-                <p>Beschreibung des Produkts 3</p>
-                <span class="price">49,99 €</span>
-                <!-- Füge den "In den Warenkorb" -Button hinzu -->
-                <button class="add-to-cart" onclick="addProductToCart()">In den Warenkorb</button>
-            </div>
-            <!-- Weitere Produktkarten hier einfügen -->
+    <main>
+        <!-- Seiteninhalt hier einfügen -->
+        <div class="container">
+            <h1>Herrenkollektion</h1>
+            <div class="product-grid">
+                <!-- Produktkarten hier einfügen -->
+                <div class="t-card">
+                    <img src="assets/products/herren/produkt8.webp" alt="Produkt 1">
+                    <h2>Produkt 1</h2>
+                    <p>Beschreibung des Produkts 1</p>
+                    <span class="price">29,99 €</span>
+                    <!-- Füge den "In den Warenkorb" -Button hinzu -->
+                    <button onclick="addProductToCart('productId1')">In den Warenkorb</button>
+                </div>
+                
         </div>
-    </div>
-</main>
+    </main>
+
     <footer>
         <!-- Dein Footer -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -210,24 +103,43 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="footer.js"></script>
         <script>
-            let cartItemCount = 0;
+            // Funktion zum Hinzufügen eines Produkts zum Warenkorb
+            function addProductToCart(productId) {
+                let cartItems = getCookie('cartItems');
+                if (!cartItems) {
+                    cartItems = [];
+                } else {
+                    cartItems = JSON.parse(cartItems);
+                }
+                cartItems.push(productId);
+                setCookie('cartItems', JSON.stringify(cartItems), 30); // Cookie für 30 Tage speichern
+                updateCartItemCount(cartItems.length);
+            }
 
-            function updateCartItemCount() {
+            // Funktion zum Aktualisieren der Anzahl der Produkte im Warenkorb
+            function updateCartItemCount(count) {
                 const cartCountElement = document.getElementById('cart-item-count');
-                cartCountElement.textContent = cartItemCount;
+                cartCountElement.textContent = count;
             }
 
-            function addProductToCart() {
-                cartItemCount++;
-                updateCartItemCount();
+            // Funktion zum Abrufen eines Cookies anhand seines Namens
+            function getCookie(name) {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.startsWith(name + '=')) {
+                        return cookie.substring(name.length + 1);
+                    }
+                }
+                return null;
             }
 
-            // Scroll-to-Top Funktion
-            function scrollToTop() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+            // Funktion zum Setzen eines Cookies mit einem bestimmten Namen, Wert und Ablaufdatum
+            function setCookie(name, value, days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                const expires = 'expires=' + date.toUTCString();
+                document.cookie = name + '=' + value + ';' + expires + ';path=/';
             }
         </script>
     </footer>
@@ -239,7 +151,8 @@
             <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0"/>
         </svg>
     </a>
-      <!-- Bootstrap JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0-alpha1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
